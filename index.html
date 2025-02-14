@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documentación Servicio Social UNAM</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<script>
+    function cartaSolicitud(){
+        document.getElementById("cartaSolicitud").onclick = function(){
+            window.location.href = "cartaSolicitud.html";
+        }
+    }
+    function cartaAceptacion(){
+        document.getElementById("cartaAceptacion").onclick = function(){
+            window.location.href = "cartaAceptacion.html";
+        }
+    }
+    function informeActividades(){
+        document.getElementById("informeActividades").onclick = function(){
+            window.location.href = "informeActividades.html";
+        }
+    }
+    function constanciaTerminacion(){
+        document.getElementById("constanciaTerminacion").onclick = function(){
+            window.location.href = "constanciaTerminacion.html";
+        }
+    }
+    
+</script>
+<body>
+    <div class="contenedor01">
+        <h1 class="docSStitulo">Documentación Servicio Social UNAM para LIESE</h1>
+        <h1>Elige el tipo de documento que vas a realizar:</h1>
+        <div class="boton1" id="cartaSolicitud" onclick="cartaSolicitud()">Solicitud de Autorización de Prestación del Servicio Social e Información Estadística</div>
+        <div class="boton2" id="cartaAceptacion" onclick="cartaAceptacion()">Carta de Aceptación</div>
+        <div class="boton3" id="informeActividades" onclick="informeActividades()">Informe Bimestral de Actividades</div>
+        <div class="boton4" id="constanciaTerminacion" onclick="constanciaTerminacion()">Constancia de Terminación de la Prestación de Servicio Social</div>
+    </div>
+</body>
+</html>

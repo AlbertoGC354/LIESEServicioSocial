@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solicitud de Autorización de Prestación del Servicio Social e Información Estadística</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<script type="text/javascript" src="jspdf.min.js"></script>
+<script>
+    function imprimirPagina(){
+        window.print();
+    }
+    function generateTxtFile() {
+      const text = document.getElementById('userInput').value;
+      const blob = new Blob([text], { type: 'text/plain' });
+      const link = document.createElement('a');
+      link.href = URL.createObjectURL(blob);
+      link.download = 'archivo.txt';
+      link.click();
+    }
+
+    function downloadTxtFile() {
+            // Captura los valores de los inputs
+            const input01 = document.getElementById('nombreAlumno').value;
+            const input02 = document.getElementById('direccionAlumno').value;
+            const input03 = document.getElementById('coloniaAlumno').value;
+            const input04 = document.getElementById('municipioAlumno').value;
+            const input05 = document.getElementById('codigopostalAlumno').value;
+            const input06 = document.getElementById('estadoAlumno').value;
+            const input07 = document.getElementById('telefonoAlumno').value;
+            const input08 = document.getElementById('emailAlumno').value;
+            const input09 = document.getElementById('dianacimientoAlumno').value;
+            const input10 = document.getElementById('mesnacimientoAlumno').value;
+            const input11 = document.getElementById('anionacimientoAlumno').value;
+            const input12 = document.getElementById('numerocuentaAlumno').value;
+            const input13 = document.getElementById('anioingresoAlumno').value;
+            const input14 = document.getElementById('semestreingresoAlumno').value;
+            const input15 = document.getElementById('clavecarreraAlumno').value;
+            const input16 = document.getElementById('creditosAlumno').value;
+            const input17 = document.getElementById('avanceAlumno').value;
+            const input18 = document.getElementById('promedioAlumno').value;
+            const input19 = document.getElementById('diaInicio').value;
+            const input20 = document.getElementById('mesInicio').value;
+            const input21 = document.getElementById('anioInicio').value;
+            const input22 = document.getElementById('duracionMeses').value;
+            const input23 = document.getElementById('horasSemana').value;
+            const input24 = document.getElementById('remuneracionAlumno').value;
+            const input25 = document.getElementById('percepcionAlumno').value;
+            const input26 = document.getElementById('generoAlumno').value;
+            const input27 = document.getElementById('otroAlumno').value;
+
+
+            // Organiza el contenido del archivo
+            const content = 
+              `
+              \nNOMBRE: \n	${input01}\n
+              \nNÚMERO DE CUENTA: \n	${input12}\n
+              \nDIRECCIÓN: \n	${input02}\n
+              \nDIRECCIÓN: \n	${input03}\n
+              \nCOLONIA: \n	${input04}\n
+              \nALCALDÍA/MUNICIPIO: \n	${input05}\n
+              \nCÓDIGO POSTAL: \n	${input06}\n
+              \nESTADO: \n	${input06}\n
+              \nTELÉFONO: \n	${input07}\n
+              \nCORREO ELECTRÓNICO: \n	${input08}\n
+              \nFECHA DE NACIMIENTO:
+              \n  Día: ${input09}\n
+              \n  Mes: ${input10}\n
+              \n  Año: ${input11}\n
+              \nINGRESO A LA FACULTAD DE INGENIERÍA:
+              \n  Año: ${input13}\n
+              \n  Semestre: ${input14}\n
+              \nCLAVE DE LA CARRERA: \n	${input15}\n
+              \nNÚMERO DE CRÉDITOS PAGADOS: \n	${input16}\n
+              \nAVANCE (PORCENTAJE): \n	${input17}%\n
+              \nPROMEDIO: \n	${input18}\n
+              \nFECHA DE INICIO:
+              \n  Día: ${input19}\n
+              \n  Mes: ${input20}\n
+              \n  Año: ${input21}\n
+              \nDURACIÓN EN MESES: \n	${input22}\n
+              \nHORAS A LA SEMANA: \n	${input23}\n
+              \nFORMA DE REMUNERACIÓN: ${input24}\n
+              \n  otro: ${input27}\n
+              \nPERCEPCIÓN MENSUAL: \n	$${input25} PESOS MEXICANOS\n
+              \nGÉNERO: \n	${input26}\n
+              `;
+
+            // Crea un blob con el contenido
+            const blob = new Blob([content], { type: 'text/plain' });
+
+            // Crea un enlace para descargar el archivo
+            const link = document.createElement('a');
+            link.href = URL.createObjectURL(blob);
+            link.download = 'archivo.txt';
+
+            // Simula un clic en el enlace para iniciar la descarga
+            link.click();
+
+            // Libera el objeto URL
+            URL.revokeObjectURL(link.href);
+            window.location.href = 'https://forms.gle/pttxfrzGVvL45W3LA';
+        }
+</script>
+
+<body>
+<div class="bodyImpresion">
+    <div class="tituloSolicitud">Facultad de Ingeniería<br>Coordinación de Administración Escolar<br><br>Solicitud de Autorización de Prestación del<br>Servicio Social e Información Estadística</div>
+    <div class="no-print" style="text-align: center;">
+      <p>Al terminar de registrar los datos, realiza los siguientes pasos:</p>Paso 1: Descarga tu PDF<br><br><button class="no-print" onclick="imprimirPagina()">Descargar PDF</button><br><br>Paso 2: Captura los datos para LIESE<br><br><button class="no-print" onclick="downloadTxtFile()">Capturar datos</button><br><br>
+    </div>
+    <div class="alumnoTitulo"><br><b>DATOS DEL ALUMNO(A)</b></div>
+    <div class="datosAlumno">
+        <div>Nombre: <input id="nombreAlumno" type="text" style="width: 35%;" placeholder="[Apellido paterno, materno, nombre]"></div>
+        <div style="text-align: center; font-size: 8pt;">(apellido paterno, materno, nombre)</div>
+        <div>Dirección: <input id="direccionAlumno" type="text" name="Direccion"></div>
+        <div>Colonia: <input id="coloniaAlumno" type="text" name="Colonia" style="width: 35%;"> Alcaldía/Municipio: <input id="municipioAlumno" type="text" name="Alcaldia" style="width: 25%;"></div>
+        <div>C.P.: <input id="codigopostalAlumno" type="text" name="CodigoPostal" style="width: 1.5cm;">Estado: <input id="estadoAlumno" type="text" name="Estado" style="width: 35%;">Teléfono: <input id="telefonoAlumno" type="text" name="Telefono" style="width: 15%;"></div>
+        <div>e-mail: <input id="emailAlumno" type="text" name="email" style="width: 35%;">Fecha de nacimiento: <input id="dianacimientoAlumno" type="text" name="DiaDeNacimiento" style="width: 0.5cm; margin-right: 0.2cm; text-align: center;" placeholder="día" >- <input id="mesnacimientoAlumno" type="text" name="MesDeNacimiento" style="width: 2cm; margin-right: 0.2cm; text-align: center;" placeholder="mes (con letra)">- <input id="anionacimientoAlumno" type="text" name="AnioDeNacimiento" style="width: 1cm; text-align: center;" placeholder="año"></div>
+        <div>Número de cuenta: <input id="numerocuentaAlumno" type="text" name="NumeroDeCuenta" style="width: 20%; margin-right: 3cm;">Ingreso a la F.I.: <input id="anioingresoAlumno" type="text" name="AnioIngresoFI" style="width: 1cm; text-align: right; margin-right: 0.2cm;" placeholder="año">- <input id="semestreingresoAlumno" type="text" name="SemestreIngresoFI" style="width: 1.8cm;" placeholder="semestre"></div>
+        <div>Clave de la carrera: <input id="clavecarreraAlumno" type="text" name="ClaveDeLaCarrera" style="width: 10%;"></div>
+        <div>Número de créditos pagados: <input id="creditosAlumno" type="text" name="NumeroDeCreditosPagados" style="width: 5%;">Avance: <input id="avanceAlumno" type="text" name="AvanceEnPorcentaje" style="width: 9%;"><b>%</b> Promedio: <input id="promedioAlumno" type="text" name="Promedio" style="width: 5%;"></div>
+        <div>Fecha de inicio: <input id="diaInicio" type="text" name="diaInicio" style="width: 0.5cm; margin-right: 0.2cm; text-align: center;" placeholder="día" >- <input id="mesInicio" type="text" name="mesInicio" style="width: 2cm; margin-right: 0.2cm; text-align: center;" placeholder="mes (con letra)">- <input id="anioInicio" type="text" name="anioInicio" style="width: 1cm; text-align: center;" placeholder="año">Duración en meses: <input id="duracionMeses" name="duracionMeses" type="text" style="width: 0.8cm;"> Horas/semana: <input id="horasSemana" name="horasSemana" style="width: 0.8cm;"></div>
+        <div>Forma de remuneración: <input id="remuneracionAlumno" type="text" name="FormaDeRemuneracion" style="width: 5%;">Percepción mensual: $<input id="percepcionAlumno" type="text" name="PercepcionMensual" style="width: 15%;">Género: <input id="generoAlumno" type="text" name="Genero" style="width: 15%;"></div>
+        <div>1.- Sueldo, 2.- Honorarios, 3.- Ayuda económica, 4.- Beca,<br>5.- Otro: <input id="otroAlumno" type="text" name="OtroTipoDePercepcionMensual" style="width: 65%;">6.- No remunerado.</div>
+    </div>
+    
+    <form id="myForm">
+      <label for="input1">Input 1:</label>
+      <input type="text" id="input1" name="input1"><br><br>
+      <label for="input2">Input 2:</label>
+      <input type="text" id="input2" name="input2"><br><br>
+      <button type="button" onclick="downloadTxtFile()">Descargar TXT</button>
+  </form>
+  
+</div>
+</body>
+</html>
